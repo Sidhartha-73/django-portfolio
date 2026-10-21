@@ -24,6 +24,16 @@
 </head>
 
 <body>
+    <!-- Portfolio Loading Screen -->
+    <div id="pageLoader" class="page-loader" role="status"
+         aria-live="polite">
+        <div class="loader-content">
+            <div class="loader-logo">&lt;/&gt;</div>
+            <div class="loader-spinner"></div>
+            <h2>Preparing your portfolio</h2>
+            <p>Getting everything ready...</p>
+        </div>
+    </div>
 
     <header class="site-header">
         <nav class="navbar container" aria-label="Main navigation">
@@ -467,6 +477,18 @@
 
     <script>
         // Light / dark theme toggle
+        // Hide the portfolio loader after the page has loaded
+window.addEventListener("load", () => {
+    const loader = document.getElementById("pageLoader");
+
+    if (loader) {
+        loader.classList.add("loader-hidden");
+
+        setTimeout(() => {
+            loader.remove();
+        }, 500);
+    }
+});
         const themeToggle = document.getElementById("themeToggle");
         const themeIcon = document.getElementById("themeIcon");
         const themeLabel = document.getElementById("themeLabel");
